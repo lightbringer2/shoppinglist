@@ -13,11 +13,12 @@ class SplashScreen : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.insetsController!!.hide(android.R.style.Theme_Black_NoTitleBar_Fullscreen)
-        /*window.setFlags(
+        //window.insetsController!!.hide(android.R.style.Theme_Black_NoTitleBar_Fullscreen)
+        //no obsolete, ale moje xiaomi bez toho nejede
+        window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
-        )*/
+        )
         setContentView(R.layout.activity_splash_screen)
 
         Handler(Looper.myLooper()!!).postDelayed({

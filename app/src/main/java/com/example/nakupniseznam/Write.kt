@@ -37,7 +37,11 @@ class Write : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             if (edName.text.toString().isEmpty()){
-                //zobraz doplň data
+
+
+
+
+
             }
             else {
                 val url = ""
@@ -51,10 +55,25 @@ class Write : AppCompatActivity() {
                     override fun getParams(): MutableMap<String, String>? {
                         val params=HashMap<String, String>()
                         params["Název"]=edName.text.toString()
-                        params["Počet"]=edNum.text.toString()
-                        params["Umístění"]=edLoc.text.toString()
-                        params["Cena"]=edPrice.text.toString()
 
+                        if(edNum.text.toString().isEmpty()){
+                            params["Počet"] = "1"
+                        }
+                        else {
+                            params["Počet"] = edNum.text.toString()
+                        }
+                        if(edLoc.text.toString().isEmpty()){
+                            params["Umístění"] = "nezadáno"
+                        }
+                        else {
+                            params["Umístění"] = edLoc.text.toString()
+                        }
+                        if(edPrice.text.toString().isEmpty()){
+                            params["Cena"] = "0"
+                        }
+                        else {
+                            params["Cena"] = edPrice.text.toString()
+                        }
                         return params
                     }
             }

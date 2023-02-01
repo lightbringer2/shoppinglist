@@ -21,12 +21,12 @@ class MainActivity : AppCompatActivity() {
         btnWrite=findViewById(R.id.btnWrite)
 
         btnRead.setOnClickListener{
-            val intent= Intent(this@MainActivity, Write::class.java)
+            val intent= Intent(this@MainActivity, Read::class.java)
             startActivity(intent)
         }
 
         btnWrite.setOnClickListener{
-            val intent=Intent(this@MainActivity, Read::class.java)
+            val intent=Intent(this@MainActivity, Write::class.java)
             startActivity(intent)
         }
 
