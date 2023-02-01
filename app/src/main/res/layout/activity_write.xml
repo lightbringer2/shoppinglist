@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Write">
+
+    <RelativeLayout
+        android:id="@+id/wProcessLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/wProgressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            />
+</RelativeLayout>
+<EditText
+    android:id="@+id/edName"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Zadejte název položky"
+    android:textSize="18sp"
+    android:layout_marginTop="25dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:maxLines="1"
+    android:textColor="@color/black"
+    tools:ignore="HardcodedText" />
+    <EditText
+        android:id="@+id/edNum"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Zadejte počet položek"
+        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:textColor="@color/black"
+        android:inputType="number"
+        android:maxLines="1"
+        android:layout_below="@id/edName"
+        tools:ignore="HardcodedText" />
+    <EditText
+        android:id="@+id/edLoc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Zadejte místo"
+        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:layout_below="@id/edNum"
+        tools:ignore="HardcodedText" />
+    <EditText
+        android:id="@+id/edPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Zadejte cenu"
+        android:textSize="18sp"
+        android:layout_margin="10dp"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:layout_below="@id/edLoc"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:layout_below="@id/edPrice"
+        android:text="Uložit"
+        android:background="#23AAE6"
+        android:textColor="#000000"
+        />
+
+</RelativeLayout>
