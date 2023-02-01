@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">NakupniSeznam</string>
+    <string name="splashText">Nákupní seznam se načítá...</string>
+</resources>
