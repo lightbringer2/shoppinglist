@@ -1,0 +1,14 @@
+//post.gs - https - odkaz na googlesheet
+
+var sprsheet=SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1lS6BW4-xAsX-q7d_w55o_cAmI9L4UhPM0gGEmS-V4Fc/edit#gid=0");
+var sheet = sprsheet.getSheetByName("items");
+function doPost(e){
+  var date = new Date();
+  var id = sheet.getLastRow();
+  var Itemname = e.parameter.Název;
+  var Number = e.parameter.Poèet;
+  var Location = e.parameter.Umístìní;
+  var Price = e.parameter.Pøedpokládaná_cena;
+  sheet.appendRow([date,id,Itemname,Number,Location,Price]);
+  return ContentService.createTextOutput("Ok").setMimeType(ContentService.MimeType.TEXT);
+}

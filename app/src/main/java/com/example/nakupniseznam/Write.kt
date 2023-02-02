@@ -1,5 +1,6 @@
 package com.example.nakupniseznam
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -18,6 +19,7 @@ class Write : AppCompatActivity() {
     lateinit var edLoc:EditText
     lateinit var edPrice:EditText
     lateinit var btnSave:Button
+    lateinit var btnClose:Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,21 +32,22 @@ class Write : AppCompatActivity() {
         edLoc=findViewById(R.id.edLoc)
         edPrice=findViewById(R.id.edPrice)
         btnSave=findViewById(R.id.btnSave)
+        btnClose=findViewById(R.id.btnClose)
 
         wProcessLayout.visibility=View.GONE
         wProgressBar.visibility=View.GONE
 
+        btnClose.setOnClickListener{
+            val intent= Intent(this@Write, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         btnSave.setOnClickListener {
             if (edName.text.toString().isEmpty()){
 
-
-
-
-
             }
             else {
-                val url = ""
+                val url = "https://script.google.com/macros/s/AKfycbwfWoI5I97k2LOOGEvk_tqf2fQEegna32vtn52vmPL99ERiUkrreYrN79NZ9wRY5r9iqw/exec"
                 val stringRequest = object : StringRequest(Request.Method.POST, url,
                     Response.Listener {
                         Toast.makeText(this@Write, it.toString(), Toast.LENGTH_SHORT).show()
@@ -69,10 +72,10 @@ class Write : AppCompatActivity() {
                             params["Umístění"] = edLoc.text.toString()
                         }
                         if(edPrice.text.toString().isEmpty()){
-                            params["Cena"] = "0"
+                            params["Předpokládaná_cena"] = "0"
                         }
                         else {
-                            params["Cena"] = edPrice.text.toString()
+                            params["Předpokládaná_cena"] = edPrice.text.toString()
                         }
                         return params
                     }
