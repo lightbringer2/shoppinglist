@@ -47,7 +47,7 @@ class Write : AppCompatActivity() {
                 Toast.makeText(this@Write, "Není zadán název.", Toast.LENGTH_SHORT).show()
             }
             else {
-                val url = "https://script.google.com/macros/s/AKfycbwfWoI5I97k2LOOGEvk_tqf2fQEegna32vtn52vmPL99ERiUkrreYrN79NZ9wRY5r9iqw/exec"
+                val url = "https://script.google.com/macros/s/AKfycbykpoCO2DXmVlrBPMeaBCsVVGUCf50UlhUD_SFLy_dHjDmSnqvCubv68bbEm8wg-eVk1g/exec"
                 val stringRequest = object : StringRequest(Request.Method.POST, url,
                     Response.Listener {
                         Toast.makeText(this@Write, it.toString(), Toast.LENGTH_SHORT).show()

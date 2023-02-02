@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import androidx.core.app.ActivityCompat
 import kotlin.system.exitProcess
 
 
@@ -20,14 +21,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val activity: MainActivity = MainActivity()
+        btnClose = findViewById(R.id.btnClose)
         btnRead=findViewById(R.id.btnRead)
         btnWrite=findViewById(R.id.btnWrite)
         btnClose=findViewById(R.id.btnClose)
 
-        fun quitApp(view: View) {
-            this@MainActivity.finish()
-            exitProcess(0)
-        }
+
 
 
         btnRead.setOnClickListener{
@@ -40,5 +40,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnClose.setOnClickListener {
+            finishAffinity()
+        }
+
     }
 }
+
+
