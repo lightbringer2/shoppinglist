@@ -65,6 +65,7 @@
         android:textSize="18sp"
         android:layout_margin="10dp"
         android:maxLines="1"
+        android:inputType="number"
         android:textColor="@color/black"
         android:layout_below="@id/edLoc"
         tools:ignore="HardcodedText" />

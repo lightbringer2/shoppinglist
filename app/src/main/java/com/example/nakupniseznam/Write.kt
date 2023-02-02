@@ -44,7 +44,7 @@ class Write : AppCompatActivity() {
 
         btnSave.setOnClickListener {
             if (edName.text.toString().isEmpty()){
-
+                Toast.makeText(this@Write, "Není zadán název.", Toast.LENGTH_SHORT).show()
             }
             else {
                 val url = "https://script.google.com/macros/s/AKfycbwfWoI5I97k2LOOGEvk_tqf2fQEegna32vtn52vmPL99ERiUkrreYrN79NZ9wRY5r9iqw/exec"

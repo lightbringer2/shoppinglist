@@ -1,14 +1,36 @@
 //post.gs - https - odkaz na googlesheet
+//https://docs.google.com/spreadsheets/d/1lS6BW4-xAsX-q7d_w55o_cAmI9L4UhPM0gGEmS-V4Fc/edit#gid=0
 
 var sprsheet=SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1lS6BW4-xAsX-q7d_w55o_cAmI9L4UhPM0gGEmS-V4Fc/edit#gid=0");
 var sheet = sprsheet.getSheetByName("items");
+
 function doPost(e){
   var date = new Date();
   var id = sheet.getLastRow();
-  var Itemname = e.parameter.N�zev;
-  var Number = e.parameter.Po�et;
-  var Location = e.parameter.Um�st�n�;
-  var Price = e.parameter.P�edpokl�dan�_cena;
+  var Itemname = e.parameter.Název;
+  var Number = e.parameter.Počet;
+  var Location = e.parameter.Umístění;
+  var Price = e.parameter.Předpokládaná_cena;
   sheet.appendRow([date,id,Itemname,Number,Location,Price]);
   return ContentService.createTextOutput("Ok").setMimeType(ContentService.MimeType.TEXT);
+}
+
+function doGet(){
+  var records={};
+  var rows = sheet.getRange(2,1, sheet.getLastRow() -1, sheet.getLastColumn()).getValues();
+  data = [];
+for (var r=0, l = rows.length;r<l;r++)
+{
+  var row=rows[r], record={};
+    record['Název'] = row[2];
+    record['Počet'] = row[3];
+    record['Umístění'] = row[4];
+    record['Předpokládaná_cena'] = row[5];
+
+    data.push(record);
+}
+
+records.items=data;
+var result=JSON.stringify(records);
+return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
 }
