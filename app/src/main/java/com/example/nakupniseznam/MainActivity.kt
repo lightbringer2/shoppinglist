@@ -13,8 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var btnWrite:Button
     lateinit var btnRead:Button
-    lateinit var btnClose:Button
-
+    private lateinit var btnClose:Button
+    lateinit var btnTest:Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +22,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val activity: MainActivity = MainActivity()
+
         btnClose = findViewById(R.id.btnClose)
         btnRead=findViewById(R.id.btnRead)
         btnWrite=findViewById(R.id.btnWrite)
         btnClose=findViewById(R.id.btnClose)
+        btnTest=findViewById(R.id.btnTest)
 
 
 
@@ -38,6 +40,11 @@ class MainActivity : AppCompatActivity() {
         btnWrite.setOnClickListener{
             val intent=Intent(this@MainActivity, Write::class.java)
             startActivity(intent)
+        }
+
+        btnTest.setOnClickListener{
+            val nintent=Intent(this@MainActivity, Test::class.java)
+            startActivity(nintent)
         }
 
         btnClose.setOnClickListener {
